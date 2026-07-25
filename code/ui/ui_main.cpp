@@ -2836,8 +2836,6 @@ qboolean Load_Menu(const char **holdBuffer)
 	return qfalse;
 }
 
-extern void UI_Cache_f();
-
 /*
 =================
 UI_LoadMenus
@@ -2847,8 +2845,6 @@ UI_LoadMenus
 void UI_LoadMenus(const char *menuFile, qboolean reset) 
 {
 	SpeedrunPauseTimer(2);
-
-	UI_Cache_f();
 
 //	pc_token_t token;
 //	int handle;
@@ -4167,6 +4163,8 @@ void Menu_Cache( void )
 	// Common menu graphics
 	uis.whiteShader = ui.R_RegisterShader( "white" );
 	uis.menuBackShader = ui.R_RegisterShaderNoMip( "menu/art/unknownmap" );
+
+	trap_S_RegisterSound("sound/interface/button1.mp3", qfalse);
 }
 
 /*
